@@ -15,7 +15,7 @@ const ReportDisplay: React.FC<ReportDisplayProps> = ({ data, onReset }) => {
   const [copyStatus, setCopyStatus] = useState<'idle' | 'copied'>('idle');
   const [reportData, setReportData] = useState<ReportData>(data);
   // const [bloqueo, setBloqueo] = useState<string>('');
-  const [tipoMovimiento, setTipoMovimiento] = useState<string>('');
+  // const [tipoMovimiento, setTipoMovimiento] = useState<string>('');
   //const isCese = !!data.motivoDeCese;
 
   useEffect(() => {
@@ -46,7 +46,7 @@ const ReportDisplay: React.FC<ReportDisplayProps> = ({ data, onReset }) => {
 
     let reportText = `
 Informe ABM
-Movimiento: ${tipoMovimiento}
+Movimiento: ${reportData.tipoMovimiento}
 Nº de Expediente: ${reportData.expediente}
 Establecimiento: ${reportData.establecimiento}
 Teléfono: ${reportData.telefono}
@@ -94,7 +94,7 @@ Resolución: ${reportData.resolucion}
     doc.text("Informe ABM", 14, 22);
 
     const tableData = [
-      ["Movimiento", tipoMovimiento],
+      ["Movimiento", reportData.tipoMovimiento],
       ["Nº de Expediente", reportData.expediente],
       ["Establecimiento", reportData.establecimiento],
       ["Teléfono", reportData.telefono],
